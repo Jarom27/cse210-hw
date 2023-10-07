@@ -10,6 +10,8 @@ class Program
         int option = 0;
         do
         {
+            Console.WriteLine("Please select the following choices:");
+            Console.WriteLine("1.Write\n2.Display\n3.Load\n4.Save\n5.Quit");
             Console.Write("What would you like to do? ");
             option = int.Parse(Console.ReadLine());
             string filename = "";
@@ -23,10 +25,12 @@ class Program
                     _journal.Display();
                     break;
                 case 3:
+                    Console.Write("What is the filename? ");
                     filename = Console.ReadLine();
                     _journal.Load(filename);
                     break;
                 case 4:
+                    Console.Write("What is the filename? ");
                     filename = Console.ReadLine();
                     _journal.Save(filename);
                     break;

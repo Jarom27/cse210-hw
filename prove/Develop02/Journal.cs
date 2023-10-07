@@ -14,6 +14,7 @@ class Journal
         {
             entry.Display();
         }
+        Console.WriteLine();
     }
     public void InsertEntry()
     {
@@ -28,10 +29,34 @@ class Journal
     }
     public void Save(string filename)
     {
+        using (StreamWriter stream = new StreamWriter(filename))
+        {
+            foreach (Entry entry in _entries)
+            {
+                stream.WriteLine($"{entry._title},{entry._description},{entry._date}");
+            }
 
+        }
     }
     public void Load(string filename)
     {
+        try
+        {
+            string[] lines = System.IO.File.ReadAllLines(filename);
+            foreach (string line in lines)
+            {
+                string[] columns = line.Split(",");
+                Entry newEntry = new Entry();
+                newEntry._title = columns[0];
+                newEntry._description = columns[1];
+                newEntry._date = columns[2];
+                _entries.Add(newEntry);
+            }
+        }
+        catch (FileNotFoundException e)
+        {
+            Console.WriteLine($"Error: {e.Message}");
+        }
 
     }
 }
