@@ -30,7 +30,7 @@ class Program
                     _journal.Load(filename);
                     break;
                 case 4:
-                    Console.Write("What is the filename? ");
+                    Console.Write("Please give a name (.csv,.txt): ");
                     filename = Console.ReadLine();
                     _journal.Save(filename);
                     break;

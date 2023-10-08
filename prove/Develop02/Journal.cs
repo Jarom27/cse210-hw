@@ -23,6 +23,8 @@ class Journal
         newEntry._title = promt;
         Console.WriteLine(promt);
         newEntry._description = Console.ReadLine();
+        Console.Write("Write a PD or only type an enter to continue: ");
+        newEntry._postData = Console.ReadLine();
         newEntry._date = DateTime.Now.ToShortDateString();
 
         _entries.Add(newEntry);
@@ -33,7 +35,7 @@ class Journal
         {
             foreach (Entry entry in _entries)
             {
-                stream.WriteLine($"{entry._title},{entry._description},{entry._date}");
+                stream.WriteLine($"{entry._title},{entry._description},{entry._date},{entry._postData}");
             }
 
         }
@@ -50,6 +52,7 @@ class Journal
                 newEntry._title = columns[0];
                 newEntry._description = columns[1];
                 newEntry._date = columns[2];
+                newEntry._postData = columns[3];
                 _entries.Add(newEntry);
             }
         }
