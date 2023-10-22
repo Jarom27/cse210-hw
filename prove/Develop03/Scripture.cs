@@ -59,7 +59,7 @@ public class Scripture
     }
     public string GetRenderedText()
     {
-        string resultText = $"{_reference.GetReferenceString()}:";
+        string resultText = $"{_reference.GetReferenceString()}";
         foreach (Word word in _words)
         {
             resultText = $"{resultText} {word.GetRenderedText()}";

@@ -13,14 +13,15 @@ class Program
         do
         {
             Console.Clear();
-            Console.WriteLine(scripture.GetRenderedText());
+            Console.WriteLine($"{scripture.GetRenderedText()} \n");
             Console.WriteLine("Please enter to continue or 'quit' to finish");
             option = Console.ReadLine();
-            scripture.HideWords();
             if (scripture.IsCompletlyHidden())
             {
                 break;
             }
+            scripture.HideWords();
+
 
         } while (option != "quit");
     }
