@@ -11,10 +11,7 @@ class BreathingActivity : Activity
     }
     public override void Run()
     {
-        DisplayStartingMessage();
-        Console.Clear();
-        Console.WriteLine("Get Ready");
-        StartSpinner();
+        base.Run();
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_duration);
         DateTime currentTime = DateTime.Now;
