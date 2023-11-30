@@ -1,0 +1,4 @@
+800
+SimpleGoal:Simple GOal,Hola mundo esta es mi meta,50,False
+EternalGoal:Eternal Goal,Esta es una Eterna meta,100
+CheckListGoal:Checklist,Una meta de chequeo,800,3,200,0
