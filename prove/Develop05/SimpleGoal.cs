@@ -1,9 +1,9 @@
 public class SimpleGoal : Goal
 {
     private bool _isComplete;
-    public SimpleGoal(int score, string title, string description) : base(score, title, description)
+    public SimpleGoal(int score, string title, string description, bool isComplete) : base(score, title, description)
     {
-        _isComplete = false;
+        _isComplete = isComplete;
         _currentlyScore = 0;
     }
     public SimpleGoal(int score, int currently, string title, string description) : base(score, currently, title, description)

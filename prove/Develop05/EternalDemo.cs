@@ -71,17 +71,29 @@ public class EternalDemo
         Console.Write("What is the filename? ");
         string filename = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(filename);
+        Goal goal = null;
+        bool firstLine = true;
         foreach (string line in lines)
         {
+            if (firstLine)
+            {
+                _totalPoints = int.Parse(line);
+                continue;
+            }
             string[] firstDivision = line.Split(":");
+            string[] infoLine = firstDivision[1].Split(",");
             switch (firstDivision[0])
             {
                 case "SimpleGoal":
+                    goal = new SimpleGoal(score: int.Parse(infoLine[2]), title: infoLine[0], description: infoLine[1], isComplete: bool.Parse(infoLine[3]));
                     break;
                 case "EternalGoal":
+                    goal = new EternalGoal(score: int.Parse(infoLine[2]), title: infoLine[0], description: infoLine[1]);
                     break;
-                case ""
+                case "CheckListGoal":
+                    break;
             }
+            _listGoals.Add(goal);
         }
 
     }
